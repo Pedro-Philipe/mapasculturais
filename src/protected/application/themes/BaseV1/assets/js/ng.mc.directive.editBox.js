@@ -42,10 +42,10 @@
 
                 $('.js-editable-field').on('shown', function(){
                     var maxSize = $(this).data('maxlength');
-                    $('#charCounter').text('');
+                    $('#charCounter_'+ this.id).text('');
                     if(maxSize){
                         setTimeout(function(){
-                            $('#charCounter').text($('textarea[onkeyup]').val().length + '/' + maxSize );
+                            $('#charCounter_'+ this.id).text($('#'+this.id).text().length + '/' + maxSize );
                         },500);
                     }
                 });

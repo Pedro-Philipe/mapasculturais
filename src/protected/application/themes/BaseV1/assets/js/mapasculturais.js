@@ -1,11 +1,16 @@
 MapasCulturais = MapasCulturais || {};
 
 function charCounter(obj){
-    if($('#charCounter').text() == '')
-        return;
+    // console.log($(obj).data('target'));
+    console.log($('#charCounter_field_'+ $(obj).data('target'))[0]);
 
-    var max = $('#charCounter').text().split('/');
-        $('#charCounter').text(($(obj).val().length + '/' + max[1]));
+    if($('#charCounter_field_' + $(obj).data('target')).text() == '') {
+        return;
+    }
+
+    var max = $(obj).attr('maxlength');
+    var counterElement = $('#charCounter_field_'+ $(obj).data('target'))[0];
+    counterElement.text(($(obj).val().length + '/' + max));
 }
 
 $(function(){
